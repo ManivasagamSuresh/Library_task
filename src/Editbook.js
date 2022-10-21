@@ -1,9 +1,16 @@
 import axios from 'axios'
 import { useFormik } from 'formik'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 function Editbook() {
+  useEffect(()=>{
+    let data = async()=>{
+let b = await axios.get(`https://63450500dcae733e8fe7f213.mockapi.io/products/${params.id}`)
+formik.setValues(b.data);
+    }
+    data()
+  },[])
     let params = useParams()
     const formik =  useFormik({
         initialValues:{
